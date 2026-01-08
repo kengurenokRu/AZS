@@ -1,5 +1,8 @@
 class Car {
     #maxTank;
+
+    static string = "Новый автомобиль";
+
     constructor(brand, model, maxTank) {
         this.brand = brand;
         this.model = model;
@@ -34,7 +37,7 @@ class Car {
 
     static from({ brand, model, maxTank }) {
         const car = new Car(brand, model, maxTank);
-        Car.logger(Car.string + car);
+        Car.logger(Car.string + car.getTitle());
         return car;
     }
 }
@@ -49,7 +52,7 @@ export class PassangerCar extends Car {
 
 export class Truck extends Car {
     typeCar = 'truck';
-    constructor(brand, model, maxTank, typeFuel = 'disel') {
+    constructor(brand, model, maxTank, typeFuel = 'diesel') {
         super(brand, model, maxTank);
         this.typeFuel = typeFuel;
     }

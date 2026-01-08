@@ -1,6 +1,6 @@
 import './style.css';
-import {Truck, PassangerCar} from './modules/car.js';
-import {Stantion} from './modules/stantion.js';
+import { Truck, PassangerCar } from './modules/car.js';
+import { Stantion } from './modules/stantion.js';
 
 
 const open = document.querySelector('.open');
@@ -36,19 +36,18 @@ const getTestCar = () => {
 };
 
 const stantion = new Stantion([
-  {type: 'petrol', count: 2, speed: 5,},
-  {type: 'diesel', count: 1, speed: 10},
-]);
+  { type: 'petrol', count: 3, speed: 5, },
+  { type: 'diesel', count: 2, speed: 20 },
+], '.app');
 
 
 open.addEventListener('click', () => {
-  stantion.init();
-  console.log(stantion);
+  stantion.init();  
   console.log('Открыто');
   open.remove();
   car.style.display = 'block';
   car.addEventListener('click', () => {
-    Stantion.addCarQueue(getTestCar());
+    stantion.addCarQueue(getTestCar());
   });
 });
 

@@ -49,6 +49,10 @@ ul {
   background-size: 20px;
 }
 
+.gas {
+  list-style-image: url(assets/img/gas-station.svg);
+}
+
 .form-input {
   width:600px;
   padding:20px;
