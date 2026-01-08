@@ -10,11 +10,11 @@ const testArray = {
   passangerCar: [
     ['Opel', 'Crossland', 45],
     ['Opel', 'Grandland X', 53],
-    ['Mazda', 'cx-5', 55],
+    ['Mazda', 'cx-5', 55, 'gas'],
     ['BMW', 'M5', 68],
     ['BMW', 'X5', 80],
     ['BMW', 'X5d', 80, 'diesel'],
-    ['BMW', 'X3', 65],
+    ['BMW', 'X3', 65, 'gas'],
     ['BMW', '5', 66],
   ],
   truck: [
@@ -36,8 +36,9 @@ const getTestCar = () => {
 };
 
 const stantion = new Stantion([
-  { type: 'petrol', count: 3, speed: 5, },
-  { type: 'diesel', count: 2, speed: 20 },
+  { type: 'petrol', },
+  { type: 'diesel', },
+  { type: 'gas', },
 ], '.app');
 
 

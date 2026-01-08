@@ -26,13 +26,17 @@ ul {
 }
 
 .petrol {
-  list-style-image: url(assets/img/icon-park_petrol.svg);
+  list-style-image: url(assets/img/icon-park_petrol.svg);  
   list-style-type: '👉';
   padding-inline-start: 1ch;
 }
 
 .diesel {
-  list-style-image: url(assets/img/icon-park-outline_petrol.svg);
+  list-style-image: url(assets/img/icon-park-outline_petrol.svg);  
+}
+
+.gas {
+  list-style-image: url(assets/img/gas-station.svg); 
 }
 
 .passanger {
@@ -49,9 +53,7 @@ ul {
   background-size: 20px;
 }
 
-.gas {
-  list-style-image: url(assets/img/gas-station.svg);
-}
+
 
 .form-input {
   width:600px;

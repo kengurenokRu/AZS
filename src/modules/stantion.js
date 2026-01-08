@@ -1,5 +1,5 @@
 import { Column } from './column';
-import {RenderStation} from './renderStation';
+import { RenderStation } from './renderStation';
 
 export class Stantion {
     #queue = [];
@@ -7,9 +7,12 @@ export class Stantion {
     #ready = [];
     constructor(typeStantion, renderApp = null) {
         this.typeStantion = typeStantion;
+        for (const optionStantion of this.typeStantion) {
+            if (!('speed' in optionStantion)) optionStantion.speed = 5;
+            if (!('count' in optionStantion)) optionStantion.count = 1;
+        }
         this.renderApp = renderApp;
         this.renderStation = null;
-
     }
 
     get filling() {
@@ -20,17 +23,23 @@ export class Stantion {
         return this.#queue;
     }
 
-    init() {
+    renderStantions() {
+
         for (const optionStantion of this.typeStantion) {
+            console.log(optionStantion.count);
             for (let i = 0; i < optionStantion.count; i++) {
+                console.log(optionStantion.type);
+                console.log(optionStantion.speed);
                 this.#filling.push(new Column(optionStantion.type, optionStantion.speed));
             }
         }
-
         if (this.renderApp) {
             this.renderStation = new RenderStation(this.renderApp, this);
         }
+    }
 
+    init() {
+        this.renderStantions();
         setInterval(() => {
             this.checkQueueToFilling();
         }, 2000);
@@ -44,7 +53,7 @@ export class Stantion {
                         this.#queue[i].typeFuel === this.#filling[j].type) {
                         this.#filling[j].car = this.#queue.splice(i, 1)[0];
                         this.fillingGo(this.#filling[j]);
-                        this.renderStation.renderStation();  
+                        this.renderStation.renderStation();
                         break;
                     }
                 }
@@ -71,11 +80,11 @@ export class Stantion {
 
     leaveClient({ car, total }) {
         this.#ready.push(car);
-        this.renderStation.renderStation();  
+        this.renderStation.renderStation();
     }
 
     addCarQueue(car) {
         this.#queue.push(car);
-        this.renderStation.renderStation();  
+        this.renderStation.renderStation();
     }
 }
